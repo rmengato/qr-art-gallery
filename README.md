@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repo aims to create an OLAP Database with data on art pieces from the Metropolitan Museum of Art, but also include QR codes of each art piece. With this, it will be possible to use the dashboard in classrooms for art or history of art studies, but also allow students to access the art piece's link easily and in a fast manner, in order to see each piece up close, with high definition details, if they wish to.  
+This repo aims to create an OLAP Database with data on art pieces from the Metropolitan Museum of Art, but also include QR codes for a link with further details on each art piece. With this, it will be possible to use the dashboard in classrooms for art or history of art studies, but also allow students to access the art piece's link easily and in a fast manner, in order to see each piece up close, with high definition details, if they wish to.  
 
 ### DataTalks.Club Zoomcamp
 This is my iteration of the final project propposed by the organizers of the Data Engineering Zoomcamp.
