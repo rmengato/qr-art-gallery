@@ -34,6 +34,8 @@ Batch Processing: **PySpark** or **DBT** (to be defined)
 
 **Ideally, a CI/CD tool will be used, as well as versioning and testing.**
 
+![Diagrama sem nome drawio](https://github.com/user-attachments/assets/99dd51dd-3b5c-4e6b-82d7-4b7a4cdb92b9)
+
 ### Chosen Datasets
 
 The chosen Dataset will be obtained from the [Metropolitan Museum of Art API](https://metmuseum.github.io/).
@@ -54,6 +56,8 @@ The chosen Dataset will be obtained from the [Metropolitan Museum of Art API](ht
         4 points: A dashboard with 2 tiles
     Reproducibility
         4 points: Instructions are clear, it's easy to run the code, and the code works
+
+
 
 
 
