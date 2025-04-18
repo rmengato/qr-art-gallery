@@ -98,7 +98,7 @@ One of the fundamental parts of a pipeline is data ingestion, wich roughly means
 
 Despite mantaining a beautiful and fully functioning API, which I absolutely loved, retrieving data from the Metropolitan was an unexpected challange, at least in the context of this project. While many APIs allow for a bulk extraction ("Please, could you send me data on all your available collection objects, all at once?"), the requests had to be done relatively to each collection object, individually ("Please, could you send me data on object with Id 74? Thanks. Please, could you send me data on object with Id 75? Thanks. Please(...)"). 
 
-The total count of objects is around half a million, which has shown to be a sufficiently large task to require some optimization. At first, retrieving the objects sequentially (iterating over a list of the object ids) seemed the way to go. However, this has shown to be way too slow, at roughly 5 to 6 requests per second. I've researched and found out about Python and dlt capabilities for Async computing. This bumped my request rate per second to 136 requests per second. This is a manyfold improvement, so large that it had even to be limited, as on the documentation from the MET API, they ask for keeping the requests under 80 per second. The libray AioLimiter was used, in an attempt to honor the museum's request (and also so my IP woudn't be blocked from accessing the API). Below is the example, given on dlt [website](https://dlthub.com/docs/general-usage/resource) that was the basis for my code that handled the extraction.
+The total count of objects is around half a million, which has shown to be a sufficiently large task to require some optimization. At first, retrieving the objects sequentially (iterating over a list of the object ids) seemed the way to go. However, this has shown to be way too slow, at roughly 5 to 6 requests per second. I've researched and found out about Python and dlt capabilities for Async computing. This bumped my request rate per second to 136 requests per second. 
 
 ```
 import dlt
@@ -115,6 +115,8 @@ async def pokemon(id):
 print(list([1,2] | pokemon()))
 
 ```
+
+This is a manyfold improvement, so large that it had even to be limited, as on the documentation from the MET API, they ask for keeping the requests under 80 per second. The libray AioLimiter was used, in an attempt to honor the museum's request (and also so my IP woudn't be blocked from accessing the API). Below is the example, given on dlt [website](https://dlthub.com/docs/general-usage/resource) that was the basis for my code that handled the extraction (no AioLimiter in their example).
 
 The Python script that handles the extraction from the MET API phase is triggered by Kestra, where a task that creates a docker container with Python is setup. 
 
