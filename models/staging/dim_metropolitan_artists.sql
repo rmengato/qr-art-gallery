@@ -1,7 +1,7 @@
 {{ config(materialized="view") }}
 
 select
-    artistmd5id,
+    md5id,
     any_value(artistdisplayname) as artistdisplayname,
     any_value(artistprefix) as artistprefix,
     any_value(artistdisplaybio) as artistdisplaybio,
@@ -15,4 +15,4 @@ select
     any_value(artistulan_url) as artistulan_url,
     min(batchtimestamp) as first_loaded_at
 from {{ ref("staging_metropolitan_artists") }}
-group by artistmd5id
+group by md5id

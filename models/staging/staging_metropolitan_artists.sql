@@ -2,7 +2,7 @@
 
 select
 
-    artistmd5id,
+    md5id,
     artistdisplayname,
     artistprefix,
     artistdisplaybio,
@@ -15,4 +15,4 @@ select
     artistwikidata_url,
     artistulan_url,
     batchtimestamp
-from {{ source("qr_art_gallery_raw", "staging_metropolitan_artists") }}
+from {{ source("qr_art_gallery_raw", "staging_metropolitan") }}

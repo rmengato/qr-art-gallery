@@ -17,7 +17,7 @@ sources:
               - unique
 
 
-      - name: staging_metropolitan_artists
+      - name: staging_metropolitan_artists_artworks
         description: "data on artists"
 
 
