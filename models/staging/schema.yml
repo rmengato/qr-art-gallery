@@ -16,21 +16,10 @@ sources:
               - not_null
               - unique
 
-      - name: staging_metropolitan_tags
-        description: "Parsed and exploded tag data from raw Met objects"
-        columns:
-          - name: term
-            description: "Thematic tag name"
 
       - name: staging_metropolitan_artists
-        description: >
-              Staging model that extracts and standardizes artist-level metadata from the Metropolitan Museum API.
-              One row per unique artist, identified by an MD5 hash key.
-        columns:
-              - name: artistmd5id
-                description: "MD5 hash of artist-related fields used as a unique identifier"
-                tests:
-                  - not_null
+        description: "data on artists"
+
 
 models:
 
