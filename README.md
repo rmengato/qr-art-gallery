@@ -32,7 +32,7 @@ Cloud Storage and Data Warehouse: **Google Cloud** and **Google BigQuery**, resp
 
 **Ingestion**: dlt
 
-Transformations: **Python Pandas library**
+Transformations: **DBT + some Python Pandas when necessary**
 
 
 ![data_museum drawio](https://github.com/user-attachments/assets/1126d6d6-b96b-4326-ba56-a2a02e85f8a4)
@@ -122,7 +122,7 @@ The Python script that handles the extraction from the MET API phase is triggere
 
 ### Transformations
 
-Approaching the final stages of the pipeline, transformations are made with the Python Pandas Library. Python was necessary for its larger scope. The library qrcode was installed, and with it a QR code could be generated for each object.
+Approaching the final stages of the pipeline, transformations are made both with DBT and the Python Pandas Library. Python was necessary for its larger scope. The library qrcode was installed, and with it a QR code could be generated for each object.
 
 
 
