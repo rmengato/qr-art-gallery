@@ -14,5 +14,5 @@ select
     any_value(artistwikidata_url) as artistwikidata_url,
     any_value(artistulan_url) as artistulan_url,
     min(batchtimestamp) as first_loaded_at
-from {{ ref("staging_metropolitan_artists") }}
+from {{ ref("staging_metropolitan_artists_view") }}
 group by md5id

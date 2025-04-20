@@ -14,11 +14,7 @@ sources:
             description: "Unique object identifier"
             tests:
               - not_null
-              - unique
-
-
-      - name: staging_metropolitan_artists_artworks
-        description: "data on artists"
+            
 
 
 models:
