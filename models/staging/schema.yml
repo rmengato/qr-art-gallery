@@ -14,16 +14,20 @@ sources:
             description: "Unique object identifier"
             tests:
               - not_null
+
+      - name: staging_metropolitan_images
+        description: "Image data from MET"
+        columns:
+          - name: objectID
+            description: "Unique object identifier"
+            tests:
+              - not_null
             
 
 
 models:
 
-      - name: dim_metropolitan_artists
-        description: ensures that there are no duplitates in staging_metropolitan_artists
-        columns:
-          - name: artistDisplayName
-            tests: [not_null]
+      
 
       - name: artists_years
         description: Artist start and end years, filtered
@@ -38,4 +42,10 @@ models:
         columns:
           - name: objectID
           - name: year
+
+      - name: dim_metropolitan_artists
+        description: ensures that there are no duplitates in staging_metropolitan_artists
+        columns:
+          - name: artistDisplayName
+            tests: [not_null]
 

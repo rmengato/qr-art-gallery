@@ -2,7 +2,7 @@
 
 with
     artists as (
-        select
+        select distinct
             artistdisplayname,
             department,
             artistNationality,
@@ -27,9 +27,9 @@ with
         where
             safe_cast(artistbegindate as int64) is not null
             and safe_cast(artistenddate as int64) is not null
-            and classification like '%aintings%'
+            and classification like '%ainting%'
             and safe_cast(artistbegindate as int64) >= 0
     )
 
-select artistdisplayname, artistNationality, artistStartYear, ArtistEndYear, yearFromLife, artistAliveCurrentYear
+select distinct artistdisplayname, artistNationality, artistStartYear, ArtistEndYear, yearFromLife, artistAliveCurrentYear
 from artists, unnest(generate_array(artistStartYear, ArtistEndYear)) as yearFromLife
