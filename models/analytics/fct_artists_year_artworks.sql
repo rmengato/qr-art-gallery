@@ -5,12 +5,12 @@
 
 with biography as 
     (select ay.artistdisplayname, 
-    ay.year as artist_year,
-    aw.year as artwork_year, 
+    ay.yearFromLife as artist_year,
+    aw.artworkExecutionYear as artwork_year, 
     aw.title as artwork_title
     from {{ ref("artists_years") }} ay
     left join
-    {{ ref("artwork_years") }} aw on ay.year = aw.year and ay.artistdisplayname = aw.artistdisplayname
+    {{ ref("artwork_years") }} aw on ay.yearFromLife = aw.artworkExecutionYear and ay.artistdisplayname = aw.artistdisplayname
     order by artistdisplayname, artist_year),
 
 years_artworks_string as (

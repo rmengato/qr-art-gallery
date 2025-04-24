@@ -6,7 +6,7 @@ with
             artistdisplayname,
             department,
             artistNationality,
-            safe_cast(artistbegindate as int64) as begin_year,
+            safe_cast(artistbegindate as int64) as artistStartYear,
         case
             when
                 safe_cast(artistenddate as int64) > extract(year from current_date())
@@ -14,19 +14,22 @@ with
                 extract(year from current_date())
             else
                safe_cast(artistenddate as int64)
-            end as end_year,
+            end as ArtistEndYear,
         case
-            when safe_cast(artistenddate as int64) > extract(year from current_date())
-            then false
-            else true
-        end as isAlive
+            when 
+                safe_cast(artistenddate as int64) > extract(year from current_date())
+            then 
+                true
+            else 
+                false
+        end as artistAliveCurrentYear
         from {{ source("qr_art_gallery_raw", "staging_metropolitan") }}
         where
             safe_cast(artistbegindate as int64) is not null
             and safe_cast(artistenddate as int64) is not null
-            and ishighlight = true
-            and safe_cast(artistbegindate as int64) >= 1300
+            and classification like '%aintings%'
+            and safe_cast(artistbegindate as int64) >= 0
     )
 
-select artistdisplayname, department, artistNationality, year
-from artists, unnest(generate_array(begin_year, end_year)) as year
+select artistdisplayname, artistNationality, artistStartYear, ArtistEndYear, yearFromLife, artistAliveCurrentYear
+from artists, unnest(generate_array(artistStartYear, ArtistEndYear)) as yearFromLife
